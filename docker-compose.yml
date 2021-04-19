@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  postgres:
+    image: "postgres:alpine"
+    environment:
+      POSTGRES_PASSWORD: "password"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./infra/init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
+    networks:
+      - dev-network
+
+networks:
+  dev-network:
+    driver: bridge
