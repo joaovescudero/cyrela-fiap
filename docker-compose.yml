@@ -11,6 +11,22 @@ services:
     networks:
       - dev-network
 
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      NODE_ENV: prod
+    entrypoint: ["npm", "run", "start:docker"]
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    networks:
+      - dev-network
+    depends_on:
+      - postgres
+
 networks:
   dev-network:
     driver: bridge

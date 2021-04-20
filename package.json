@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/index.js",
+    "start:docker": "npm run createTables && npm start",
+    "start:prod": "NODE_ENV=prod npm start",
+    "createTables": "./node_modules/.bin/sucrase-node infra/load-tables-to-docker.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

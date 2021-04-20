@@ -1,1 +1,2 @@
-export * as activity from './activity'
+export * as activity from './activities'
+export * as ocurrences from './ocurrences'
